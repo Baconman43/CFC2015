@@ -54,38 +54,24 @@ class ShapeFactory {
   }
 
   void buildBasicPlayer() {
-    basicPlayerRadius = 30;
     basicPlayer = createShape(GROUP);
     PShape chassis = createShape();
     chassis.beginShape();
-    chassis.noStroke();
-    chassis.fill(125);
-    chassis.strokeWeight(2);
-    chassis.vertex(0, -100);
-    chassis.vertex(10, -80);
-    chassis.vertex(10, -60);
-    chassis.vertex(20, 0);
-    chassis.vertex(40, -40);
-    chassis.vertex(40, 0);
-    chassis.vertex(20, 40);
-    chassis.vertex(-20, 40);
-    chassis.vertex(-40, 0);
-    chassis.vertex(-40, -40);
-    chassis.vertex(-20, 0);
-    chassis.vertex(-10, -60);
-    chassis.vertex(-10, -80);
-    chassis.vertex(0, -100);
+    chassis.vertex(0, -90);
+    chassis.vertex(40, -10);
+    chassis.vertex(40, 70);
+    chassis.vertex(-40, 70);
+    chassis.vertex(-40, 10);
+    chassis.vertex(0, -90);
     chassis.endShape();
-    fill(255, 255, 0);
-    PShape leftOrb = createShape(ELLIPSE, -50, -50, 20, 20);
-    PShape rightOrb = createShape(ELLIPSE, 30, -50, 20, 20);
-    fill(102, 255, 255);
-    PShape cockpit = createShape(ELLIPSE, -10, -25, 20, 50);
+    PShape cockpit = createShape(ELLIPSE, -10, -15, 20, 30);
+    PShape turret1 = createShape(LINE, 90, -30, 40, 30);
+    PShape turret2 = createShape(LINE, -90, -30, -40, 30);
     basicPlayer.addChild(chassis);
-    basicPlayer.addChild(leftOrb);
-    basicPlayer.addChild(rightOrb);
     basicPlayer.addChild(cockpit);
-    basicPlayer.scale(0.55);
+    basicPlayer.addChild(turret1);
+    basicPlayer.addChild(turret2);
+    stroke(255);
   }
 
   void buildBasicEnemy() {
